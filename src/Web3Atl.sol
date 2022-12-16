@@ -55,7 +55,7 @@ contract Web3Atl is ERC721, Ownable {
     function hackerMint(bytes32[] calldata _hackerProof) public {
         bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
         require(
-            MerkleProofLib.verify(_hackerProof, leaf, hackerMerkleRoot),
+            MerkleProofLib.verify(_hackerProof, hackerMerkleRoot, leaf),
             "You are not a hacker"
         );
         require(!hackerClaimed[msg.sender], "You already claimed your token");
@@ -71,7 +71,7 @@ contract Web3Atl is ERC721, Ownable {
     function generalMint(bytes32[] calldata _generalProof) public {
         bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
         require(
-            MerkleProofLib.verify(_generalProof, leaf, generalMerkleRoot),
+            MerkleProofLib.verify(_generalProof, generalMerkleRoot, leaf),
             "You are not a general attendee"
         );
         require(!generalClaimed[msg.sender], "You already claimed your token");
@@ -87,7 +87,7 @@ contract Web3Atl is ERC721, Ownable {
     function teamMint(bytes32[] calldata _teamProof) public {
         bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
         require(
-            MerkleProofLib.verify(_teamProof, leaf, teamMerkleRoot),
+            MerkleProofLib.verify(_teamProof, teamMerkleRoot, leaf),
             "You are not a team member"
         );
         require(!teamClaimed[msg.sender], "You already claimed your token");
@@ -103,7 +103,7 @@ contract Web3Atl is ERC721, Ownable {
     function speakerMint(bytes32[] calldata _speakerProof) public {
         bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
         require(
-            MerkleProofLib.verify(_speakerProof, leaf, speakerMerkleRoot),
+            MerkleProofLib.verify(_speakerProof, speakerMerkleRoot, leaf),
             "You are not a speaker"
         );
         require(!speakerClaimed[msg.sender], "You already claimed your token");
