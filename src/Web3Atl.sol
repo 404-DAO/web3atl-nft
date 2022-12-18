@@ -25,7 +25,7 @@ contract Web3Atl is ERC721, Ownable {
     bytes32 public speakerMerkleRoot;
 
     // instantiate attendee type for a tokenID. Used to set uri's.
-    mapping(uint256 => AttendeeTypes) tokenType;
+    mapping(uint256 => AttendeeTypes) public tokenType;
 
     // instantiate owner for a tokenID
     mapping(uint256 => address) public tokenOwner;
