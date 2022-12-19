@@ -153,8 +153,6 @@ contract Web3Atl is ERC721, Ownable {
                 baseURI,
                 "/",
                 Strings.toString(uint256(tokenType[id])),
-                "/",
-                Strings.toString(id),
                 ".json"
             );
     }
