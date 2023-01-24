@@ -52,8 +52,8 @@ contract Web3Atl is ERC721, Ownable {
 
     /// @notice mint function for hackathon participants
     /// @param _hackerProof merkle tree proof
-    function hackerMint(bytes32[] calldata _hackerProof) public {
-        bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
+    function hackerMint(bytes32[] calldata _hackerProof, string calldata email) public {
+        bytes32 leaf = keccak256(abi.encodePacked(email));
         require(
             MerkleProofLib.verify(_hackerProof, hackerMerkleRoot, leaf),
             "You are not a hacker"
@@ -68,8 +68,8 @@ contract Web3Atl is ERC721, Ownable {
 
     /// @notice mint function for general participants
     /// @param _generalProof merkle tree proof
-    function generalMint(bytes32[] calldata _generalProof) public {
-        bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
+    function generalMint(bytes32[] calldata _generalProof, string calldata email) public {
+        bytes32 leaf = keccak256(abi.encodePacked(email));
         require(
             MerkleProofLib.verify(_generalProof, generalMerkleRoot, leaf),
             "You are not a general attendee"
@@ -84,8 +84,8 @@ contract Web3Atl is ERC721, Ownable {
 
     /// @notice mint function for team
     /// @param _teamProof merkle tree proof
-    function teamMint(bytes32[] calldata _teamProof) public {
-        bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
+    function teamMint(bytes32[] calldata _teamProof, string calldata email) public {
+        bytes32 leaf = keccak256(abi.encodePacked(email));
         require(
             MerkleProofLib.verify(_teamProof, teamMerkleRoot, leaf),
             "You are not a team member"
@@ -100,8 +100,8 @@ contract Web3Atl is ERC721, Ownable {
 
     /// @notice mint function for speakers
     /// @param _speakerProof merkle tree proof
-    function speakerMint(bytes32[] calldata _speakerProof) public {
-        bytes32 leaf = keccak256(abi.encodePacked(msg.sender));
+    function speakerMint(bytes32[] calldata _speakerProof, string calldata email) public {
+        bytes32 leaf = keccak256(abi.encodePacked(email));
         require(
             MerkleProofLib.verify(_speakerProof, speakerMerkleRoot, leaf),
             "You are not a speaker"
