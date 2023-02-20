@@ -1,0 +1,11 @@
+{
+  "attributes": [
+    {
+      "trait_type": "Attendee Type",
+      "value": "TEAM"
+    }
+  ],
+  "description": "An NFT for Web3 ATL team attendee.",
+  "image": "ipfs://QmP3aAVB1YvcVBMHtdSCaKBNCWprdr8oyTvSSZ3mTR6pg2",
+  "name": "Web3 ATL Team Attendee"
+}

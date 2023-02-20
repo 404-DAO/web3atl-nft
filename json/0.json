@@ -1,0 +1,11 @@
+{
+    "attributes": [
+      {
+        "trait_type": "Attendee Type",
+        "value": "HACKER"
+      }
+    ],
+    "description": "An NFT for Web3 ATL hacker attendee.",
+    "image": "ipfs://QmPARhLKJaH6bqRAMU9ZttwLQYnuwq26CtkjkspWx7MxzX",
+    "name": "Web3 ATL Hacker Attendee"
+}
