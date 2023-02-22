@@ -2,10 +2,10 @@
     "attributes": [
       {
         "trait_type": "Attendee Type",
-        "value": "SPONSER"
+        "value": "SPONSOR"
       }
     ],
-    "description": "An NFT for Web3 ATL Sponser.",
-    "image": "ipfs://QmRPDnUCrrCfhh13PPTdQawhB5Tyb8nCkdiQPJPvTSRPt6",
-    "name": "Web3 ATL Speaker Attendee"
+    "description": "An NFT for Web3 ATL Sponsor.",
+    "image": "ipfs://QmUQpMPb4inoXfab3g2rsadonaReSd1aqiGYcR7LVnehHH",
+    "name": "Web3 ATL Sponsor Attendee"
 }
