@@ -22,14 +22,14 @@ contract Web3AtlTest is Test {
         web3atl = new Web3Atl('Web3Atl Attendees','W3ATL', baseURI, merkleRootHacker, merkleRootGeneral, merkleRootTeam, merkleRootSpeaker);
     }
 
-    // function testBaseURIAfterSetUp() public {
-    //     assertEq(web3atl.baseURI(), baseURI);
-    // }
+    function testBaseURIAfterSetUp() public {
+        assertEq(web3atl.baseURI(), baseURI);
+    }
 
-    // function testSetBaseURI(string memory newBaseURI) public {
-    //     web3atl.setBaseURI(newBaseURI);
-    //     assertEq(web3atl.baseURI(), newBaseURI);
-    // }
+    function testSetBaseURI(string memory newBaseURI) public {
+        web3atl.setBaseURI(newBaseURI);
+        assertEq(web3atl.baseURI(), newBaseURI);
+    }
 
     // function testSetBaseURINotOwner(address addr, string memory newBaseURI) public {
     //     vm.prank(addr);
@@ -141,25 +141,31 @@ contract Web3AtlTest is Test {
     //     web3atl.generalMint(proof, generalEmail);
     // }
     
-    // function testTeamMintValidAddressAndProof() public {
-    //     uint256 tokenID = web3atl.tokenID();
+    function testTeamMintValidAddressAndProof() public {
+        uint256 tokenID = web3atl.tokenID();
 
-    //     bytes32[] memory proof = new bytes32[](3);
-    //     proof[0] = 0x7edf1ec327977661b7c80286118e1333269b1b1e554167c3e804bdcb271f399b;
-    //     proof[1] = 0xa5a89c345e719f1ac6d052e9413caed0d43994fd902943cddadfa53e7125c0d8;
-    //     proof[2] = 0xd462a467848c4c38e78b641ca7ce46badb7534a3d592371ae4c406decd197b49;
+        bytes32[] memory proof = new bytes32[](3);
+        proof[0] = 0x5aabd4a8d08d4325db0087c090bb6a9e235f32bf6f3d725e3008c0a4639f1dda;
+        proof[1] = 0x3db4422081cf99995f0bac04e406f29e08345654baa19135edda091795452730;
+        proof[2] = 0x6c9ebcfed10b1d113b5a2e40790d353761a69df06a3abcb7dcd3afb609f841ff;
+
+        [
+  '0x5aabd4a8d08d4325db0087c090bb6a9e235f32bf6f3d725e3008c0a4639f1dda',
+  '0x6c9ebcfed10b1d113b5a2e40790d353761a69df06a3abcb7dcd3afb609f841ff',
+  '0xf5242667d1f2f0a23095cdd6b04857db258b2b22a514d652780a4a8633d39ba7'
+]
         
-    //     string memory teamEmail = "pruitt.martin@gmail.com";
-    //     vm.prank(someAddress);
-    //     web3atl.teamMint(proof, teamEmail);
+        string memory teamEmail = "rschleusner@gatech.edu";
+        vm.prank(someAddress);
+        web3atl.teamMint(proof, teamEmail);
         
-    //     assertEq(web3atl.tokenOwner(tokenID), someAddress);
-    //     assert(web3atl.tokenType(tokenID) == Web3Atl.AttendeeTypes.TEAM);
-    //     assert(web3atl.teamClaimed(someAddress));
+        assertEq(web3atl.tokenOwner(tokenID), someAddress);
+        assert(web3atl.tokenType(tokenID) == Web3Atl.AttendeeTypes.TEAM);
+        assert(web3atl.teamClaimed(someAddress));
         
-    //     uint256 newTokenID = web3atl.tokenID();
-    //     assertEq(newTokenID - 1, tokenID);
-    // }
+        uint256 newTokenID = web3atl.tokenID();
+        assertEq(newTokenID - 1, tokenID);
+    }
 
     // function testTeamCannotMintTwice() public {
     //     bytes32[] memory proof = new bytes32[](3);
