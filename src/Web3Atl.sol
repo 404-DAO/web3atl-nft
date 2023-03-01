@@ -114,6 +114,37 @@ contract Web3Atl is ERC721, Ownable {
         tokenID++;
     }
 
+
+
+    function HackerMintOwner() public onlyOwner{
+        _mint(msg.sender, tokenID);
+        tokenOwner[tokenID] = msg.sender;
+        tokenType[tokenID] = AttendeeTypes.HACKER;
+        tokenID++;
+    }
+
+    function GeneralMintOwner() public onlyOwner{
+        _mint(msg.sender, tokenID);
+        tokenOwner[tokenID] = msg.sender;
+        tokenType[tokenID] = AttendeeTypes.GENERAL;
+        tokenID++;
+    }
+
+    function SpeakerMintOwner() public onlyOwner{
+        _mint(msg.sender, tokenID);
+        tokenOwner[tokenID] = msg.sender;
+        tokenType[tokenID] = AttendeeTypes.SPEAKER;
+        tokenID++;
+    }
+
+    function TeamMintOwner() public onlyOwner{
+        _mint(msg.sender, tokenID);
+        tokenOwner[tokenID] = msg.sender;
+        tokenType[tokenID] = AttendeeTypes.TEAM;
+        tokenID++;
+    }
+
+
     /// @notice sets the merkle roots for all attendee types
     function _setMerkleRoots(
         bytes32 _hackerMerkleRoot,
