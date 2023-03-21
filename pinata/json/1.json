@@ -1,0 +1,11 @@
+{
+    "attributes": [
+      {
+        "trait_type": "Attendee Type",
+        "value": "GENERAL"
+      }
+    ],
+    "description": "An NFT for Web3 ATL General Attendee.",
+    "image": "ipfs://QmUQpMPb4inoXfab3g2rsadonaReSd1aqiGYcR7LVnehHH",
+    "name": "Web3 ATL General Attendee"
+}
